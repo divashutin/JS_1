@@ -1,123 +1,104 @@
 // JavaScript source code
-var app = {}
-var array = {}
+var calculator = new Object();
 
-array.getMaxSubSum2 = function (arr)
-{
-    var ans, sum, r;
-    ans = arguments[0];
-    n = arguments.length - 1;
-    sum = 0;
-    for (r = 0; r < n; r++) {
-        sum += arguments[r];
-        ans = Math.max(ans, sum);
-        sum = Math.max(sum, 0);   }
-    return ans;
+calculator.getMaxSubSum2 = function (){
+    var result = arguments[0];
+    var sum = 0;
+    var n = arguments.length - 1;
+    for (var i = 0; i < n; i++){
+        sum += arguments[i];
+        result = Math.max(result, sum);
+        sum = Math.max(sum, 0);
+    }
+    return result;
 }
 
-
-
-array.getMaxSubSum1 = function (arr)
-{
-    var r, sum, min_sum, ans, n;
-    ans = arguments[0];
-    sum = min_sum = 0;
-    n = arguments.length - 1;
-    for (r = 0; r < n; r++) {
-        sum += arguments[r];
-        ans = Math.max(ans, sum - min_sum);
-        min_sum = Math.min(min_sum, sum);    }
-    return ans;
+calculator.getMaxSubSum1 = function (){
+    var minSum = 0;
+    var result = arguments[0];
+    var sum = 0;
+    var n = arguments.length - 1;
+    for (var i = 0; i < n; i++){
+        sum += arguments[i];
+        result = Math.max(result, sum - minSum);
+        minSum = Math.min(minSum, sum);
+    }
+    return result;
 }
 
-array.getMaxElement = function (arr)
-{
-    var max_el, n, r;
-    max_el = arguments[0];
-    n = arguments.length - 1;
-    for (r = 0; r < n; r++)
-        if (max_el < arguments[r])
-            max_el = arguments[r];
-    return max_el;
+calculator.getMaxElement = function (){
+    var maxEl = arguments[0];
+    var n = arguments.length - 1;
+    for (var i = 0; i < n; i++) {
+        if (maxEl < arguments[i]) {
+            maxEl = arguments[i];
+        }
+    }
+    return maxEl;
 }
 
-array.getMax = function (arr)
-{
+calculator.getMax = function (){
     var args = Array.prototype.slice.call(arguments);
     return Math.max.apply(null,args);
 }
 
-array.getMin = function (arr)
-{
+calculator.getMin = function (){
     var args = Array.prototype.slice.call(arguments);
     return Math.min.apply(null,args);
 }
 
-array.getMinElement = function (arr)
-{
-    var min_el, n, r;
-    min_el = arguments[0];
-    n = arguments.length - 1;
-    for (r = 0; r < n; r++) 
-    if (min_el > arguments[r]) 
-        min_el = arguments[r];
-    return min_el;
+calculator.getMinElement = function (){
+    var minEl = arguments[0];
+    var n = arguments.length - 1;
+    for (var i = 0; i < n; i++) 
+    if (minEl > arguments[i]) 
+        minEl = arguments[i];
+    return minEl;
 }
 
-array.getMiddleElement = function (arr)
-{
-    var ans;
+calculator.getMiddleElement = function (){
+    var result;
     var n = arguments.length - 1;
     var args = Array.prototype.slice.call(arguments);
     args.sort(function (a, b) { return a - b; });
-    if (n % 2 === 1) ans = args[Math.floor(n / 2 )];
-    else
-    ans = (args[n / 2] + args[n / 2 + 1]) / 2; 
-    return ans;
+    if (n % 2 === 1) {
+        result = args[Math.floor(n / 2)];
+    }
+    else {
+        result = (args[n / 2] + args[n / 2 + 1]) / 2;
+    }
+    return result;
 }
 
-array.getMaxIncSequence = function (arr)
-{
+calculator.getMaxIncSequence = function (){
     var args = Array.prototype.slice.call(arguments);
-
     var n = arguments.length - 1;
     var length = [];
-    for (var i = 0; i < n; i++) length[i] = 1;
+    for (var i = 0; i < n; i++) {
+        length[i] = 1;
+    }
 
-    for (var i = 0; i < n; i++) 
-        for (var j = i; j < n; j++)
-            if (args[j] < args[j + 1])
+    for (var i = 0; i < n; i++) {
+        for (var j = i; j < n; j++) {
+            if (args[j] < args[j + 1]) {
                 length[i]++;
-            else j = n;
+            }
+            else {
+                j = n;
+            }
+        }
+    }
 
     var max = length[0];
-    var max_i = 0;
-    for (var i = 1; i < n; i++)
-        if (length[i] > max)
-        {   max = length[i];
-            max_i = i; }
-
-    var ans = args.slice(max_i, max_i + max);
-    return ans;
+    var maxIndex = 0;
+    for (var i = 1; i < n; i++){
+        if (length[i] > max) {
+            max = length[i];
+            maxIndex = i;
+        }
+    }
+    var result = args.slice(maxIndex, maxIndex + max);
+    return result;
 }
 
 
-app.execute = function (arr)
-{
-    var input_arr = Array.prototype.slice.call(arguments);
-    var output_ans = array.getMaxElement.apply(null, input_arr);
-    document.querySelector("#max").textContent = output_ans;
-    document.getElementById("max").textContent = output_ans;
-    output_ans = array.getMinElement.apply(null, input_arr);
-    document.getElementById("min").textContent = output_ans;
-    output_ans = array.getMiddleElement.apply(null, input_arr);
-    document.getElementById("middle").textContent = output_ans;
-    output_ans = array.getMaxSubSum1.apply(null, input_arr);
-    document.getElementById("max_sum").textContent = output_ans;
-    output_ans = array.getMaxIncSequence.apply(null, input_arr);
-    document.getElementById("max_sequence").textContent = output_ans;
-}
-
-
-
- 

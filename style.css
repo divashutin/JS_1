@@ -1,0 +1,19 @@
+﻿ul
+{
+  list-style-type:none;
+}
+
+li
+{
+  display:inline;
+}
+
+a
+{
+  text-decoration:none;
+  background:orange;
+  color:white;
+  font-size:15px;
+  padding:5px 5px;
+  border-radius:2px;
+}

@@ -3,22 +3,22 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css"/>
     <title></title>
 </head>
 <body>
-     <p >max element</p>
-    <label id="max"></label>
-    <p >min element</p>
-    <label id="min"></label>
-    <p >middle element</p>
-    <label id="middle"></label>
-    <p >max sub sum</p>
-    <label id="max_sum"></label>
-    <p >max inc sequence</p>
-    <label id="max_sequence"></label>
-    <script type="text/javascript">
-        app.execute.apply(null, [1, 2, 3, 7, -2, -4, 6, 3, -5, 1]);
-    </script>
+    <ul id="options">
+        <li><a href="javascript: void(0);" id="max">max element</a></li>
+        <li><a href="javascript: void(0);" id="min">min element</a></li>
+        <li><a href="javascript: void(0);" id="middle">middle element</a></li>
+        <li><a href="javascript: void(0);" id="max_sum">max sub sum</a></li>
+        <li><a href="javascript: void(0);" id="max_sequence">max inc sequence</a></li>
+    </ul>
+    <p>array</p>
+     <input type="text" id="arr" value="" />
+    <p>result</p>
+     <input type="text" value="" id="result" />
+     <script type="text/javascript" src="app.js"></script>  
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
