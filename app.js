@@ -15,19 +15,24 @@ document.getElementById("options").onclick = function (e) {
     var id = target.id;
     switch (id) {
         case "max":
-            result = calculator.getMaxElement.apply(null, inputArr);
+            var calculator = new Calculator(inputArr);
+            result = calculator.getMaxElement();
             break;
         case "min":
-            result = calculator.getMinElement.apply(null, inputArr);
+            var calculator = new Calculator(inputArr);
+            result = calculator.getMinElement();
             break;
         case "middle":
-            result = calculator.getMiddleElement.apply(null, inputArr);
+            var calculator = new Calculator(inputArr);
+            result = calculator.getMiddleElement();
             break;
         case "max_sum":
-            result = calculator.getMaxSubSum1.apply(null, inputArr);
+            var calculator = new Calculator(inputArr);
+            result = calculator.getMaxSubSum1();
             break;
         case "max_sequence":
-            result = calculator.getMaxIncSequence.apply(null, inputArr);
+            var calculator = new Calculator(inputArr);
+            result = calculator.getMaxIncSequence();
             break;
     }
 
